@@ -1,198 +1,323 @@
 <!DOCTYPE html>
 
-><html lang = "ru"> 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Семестровая работа</title>
-        <link rel="stylesheet" href="../style/styles.css">
+><html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семестровая работа</title>
+    <link rel="stylesheet" href="../style/styles.css">
 
 
-            <dialog>
-        
+    <dialog>
+
     </dialog>
-    
-    <!-- функционал -->
-     <style>
-/* Стили для модального окна */
-dialog::backdrop {
-background: rgba(0, 0, 0, 0.6);
-animation: fadeIn 0.3s ease;
-}
-dialog {
-border: none;
-border-radius: 12px;
-padding: 0;
-box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-animation: slideIn 0.3s ease;
-max-width: 500px;
-width: 90vw;
-max-height: 90vh;
-overflow-y: auto;
-}
-.modal-header {
-background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-color: white;
-padding: 1.5rem;
-border-radius: 12px 12px 0 0;
-margin: 0;
-}
-.modal-header h2 {
-margin: 0;
-color: white;
-font-size: 1.5rem;
-}
-.modal-content {
-padding: 2rem;
-}
-.form-group {
-margin-bottom: 1.5rem;
-}
-.form-group label {
-display: block;
-margin-bottom: 0.5rem;
-font-weight: 600;
-color: #2c3e50;
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-width: 100%;
-padding: 0.75rem;
-border: 2px solid #e9ecef;
-border-radius: 6px;
-font-size: 1rem;
-transition: border-color 0.3s ease;
-box-sizing: border-box;
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-outline: none;
-border-color: #667eea;
-}
-.form-group textarea {
-min-height: 100px;
-resize: vertical;
-}
-.modal-actions {
-display: flex;
-gap: 1rem;
-justify-content: flex-end;
-margin-top: 2rem;
-}
-.btn {
-padding: 0.75rem 1.5rem;
-border: none;
-border-radius: 6px;
-cursor: pointer;
-font-size: 1rem;
-transition: all 0.3s ease;
-font-weight: 600;
-}
-.btn-primary {
-background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-color: white;
-}
-.btn-primary:hover {
-transform: translateY(-2px);
-box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-}
-.btn-secondary {
-background: #f8f9fa;
-color: #2c3e50;
-border: 2px solid #e9ecef;
-}
-.btn-secondary:hover {
-background: #e9ecef;
-}
-.required {
-color: #e74c3c;
-}
-@keyframes fadeIn {
-from { opacity: 0; }
-to { opacity: 1; }
-}
-@keyframes slideIn {
-from {
-opacity: 0;
-transform: translateY(-50px) scale(0.9);
-}
-to {
-opacity: 1;
-transform: translateY(0) scale(1);
-}
-}
-/* Адаптивность */
-@media (max-width: 600px) {
-dialog {
-margin: 1rem;
-width: calc(100vw - 2rem);
-}
-.modal-actions {
-flex-direction: column;
-}
-.btn {
-width: 100%;
-}
-}
-</style>
-    </head>
+
+    <style>
+        /* Стили для модального окна */
+        dialog::backdrop {
+            background: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease;
+        }
+
+        dialog {
+            border: none;
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+            max-width: 500px;
+            width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px 12px 0 0;
+            margin: 0;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .modal-content {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #2c3e50;
+            border: 2px solid #e9ecef;
+        }
+
+        .btn-secondary:hover {
+            background: #e9ecef;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 600px) {
+            dialog {
+                margin: 1rem;
+                width: calc(100vw - 2rem);
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
 <body>
-<div class="page-container">
-<div class="header">Хэдер</div>
-<div class="nav">
-<ul class="nav-list">
-<li class="nav-item"><a class="nav-link"
-href="../index.html">Главная</a></li>
-<li class="nav-item"><a class="nav-link"
-href="news.html">Новости</a></li>
-<li class="nav-item"><a class="nav-link"
-href="practices.html">Практики</a></li>
-<li class="nav-item"><a class="nav-link"
-href="goods.html">Товары</a></li>
-<li class="nav-item"><a class="nav-link"
-href="contacts.html">Контакты</a></li>
-</ul>
+    <div class="page-container">
+        <header class="header">
+            <img class="ico" src="../images/icons/111.png" alt="logo">
+            <h3>Ковалёв Фёдор</h3>
+        </header>
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Дневник</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Проекты</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            </ul>
         </div>
 
-<div class="content">
+        <div class="content">
 
-    <section class="products-grid">
-        <article class="product-card">
-            <h2 class="product-name">Фотографии остановочной легенды</h2>
-            <img class="product-image" src="../images/zina.png" alt="Zina" width="200" height="200">
-            <p class="product-price">1500 $$$</p>
-             <button class="product-button" onclick="productModal1.showModal()">1500 $$$</button>
-        </article>
+            <section class="products-grid">
 
-        <article class="product-card">
-            <h2 class="product-name">Зинины зубы от Зины</h2>
-            <img class="product-image" src="../images/babateeth.png" alt="ZinaTeeth" width="200" height="200">
-            <p class="product-price">150 $$$</p>
-             <button class="product-button" onclick="productModal1.showModal()">Подробнее</button>
-        </article>
+                <!-- Товар 1 -->
+                <article class="product-card">
+                    <h2 class="product-name">Лабиринт убийца</h2>
+                    <img class="product-image" src="../images/killer.png" alt="killer" width="200" height="200">
+                    <button class="product-button" onclick="modal1.showModal()">Подробнее</button>
+                </article>
 
-        <article class="product-card">
-            <h2 class="product-name">Фотографии ужасной трагедии...</h2>
-            <img class="product-image" src="../images/pixelart.png" alt="pixels" width="200" height="200">
-            <p class="product-price">2500 $$$</p>
-             <button class="product-button" onclick="productModal1.showModal()">Подробнее</button>
-        </article>
+                <dialog id="modal1">
+                    <div class="modal-header">
+                        <h2>Циферки нолики</h2>
+                    </div>
+                    <div class="modal-content">
+                        <img src="../images/killer.png" alt="Лабиринт убийца"
+                            style="width:100%; border-radius:10px; margin-bottom:15px;">
+                        <p>занимательное прохождение лабиринта</p>
+                        <div class="modal-actions">
+                            <form method="dialog">
+                                <button type="submit" class="btn btn-secondary">Закрыть</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+
+                <!-- Товар 2 -->
+                <article class="product-card">
+                    <h2 class="product-name">Просто имба</h2>
+                    <img class="product-image" src="../images/babateeth.png" alt="imba" width="200" height="200">
+                    <button class="product-button" onclick="modal2.showModal()">Подробнее</button>
+                </article>
+
+                <dialog id="modal2">
+                    <div class="modal-header">
+                        <h2>Просто имба</h2>
+                    </div>
+                    <div class="modal-content">
+                        <img src="../images/babateeth.png" alt="Просто имба"
+                            style="width:100%; border-radius:10px; margin-bottom:15px;">
+                        <p>Занимательные зубы
+                        </p>
+                        <div class="modal-actions">
+                            <form method="dialog">
+                                <button type="submit" class="btn btn-secondary">Закрыть</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+
+                <!-- Товар 3 -->
+                <article class="product-card">
+                    <h2 class="product-name">Циферки нолики</h2>
+                    <img class="product-image" src="../images/noliki.png" alt="noliki" width="200" height="200">
+                    <button class="product-button" onclick="modal3.showModal()">Подробнее</button>
+                </article>
+
+                <dialog id="modal3">
+                    <div class="modal-header">
+                        <h2>Циферки нолики</h2>
+                    </div>
+                    <div class="modal-content">
+                        <img src="../images/noliki.png" alt="Циферки нолики"
+                            style="width:100%; border-radius:10px; margin-bottom:15px;">
+                        <p>Занимательное ничего</p>
+                        <div class="modal-actions">
+                            <form method="dialog">
+                                <button type="submit" class="btn btn-secondary">Закрыть</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+
+                <!-- Товар 4 -->
+                <article class="product-card">
+                    <h2 class="product-name">Вонючие носки</h2>
+                    <img class="product-image" src="../images/zina.png" alt="socks" width="200" height="200">
+                    <button class="product-button" onclick="modal4.showModal()">Подробнее</button>
+                </article>
+
+                <dialog id="modal4">
+                    <div class="modal-header">
+                        <h2>Вонючие носки</h2>
+                    </div>
+                    <div class="modal-content">
+                        <img src="../images/zina.png" alt="Вонючие носки"
+                            style="width:100%; border-radius:10px; margin-bottom:15px;">
+                        <p>Занимательный запашок</p>
+                        <div class="modal-actions">
+                            <form method="dialog">
+                                <button type="submit" class="btn btn-secondary">Закрыть</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
+
+            </section>
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+    <footer class="footer">
+        <p>Футер</p>
+    </footer>
+
     </section>
 
 
+    <script>
+        document.getElementById('openModal1').addEventListener('click', () => {
+            document.getElementById('productModal1').showModal();
+        });
+
+        document.getElementById('openModal2').addEventListener('click', () => {
+            document.getElementById('productModal2').showModal();
+        });
+
+        document.getElementById('openModal3').addEventListener('click', () => {
+            document.getElementById('productModal3').showModal();
+        });
+
+        document.getElementById('openModal4').addEventListener('click', () => {
+            document.getElementById('productModal4').showModal();
+        });
+    </script>
 
 
-</div>
+    </div>
+</body>
 
-        </div>
-
-
-        <footer class="footer"> <!-- Было: <div class="footer"> -->
-<p>Футер</p> <!-- Добавили параграф для семантики -->
-</footer>
-
-        </div>
-    </body>
 </html>

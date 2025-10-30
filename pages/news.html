@@ -1,58 +1,135 @@
 <!DOCTYPE html>
-<html lang = "ru"> 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Семестровая работа</title>
-        <link rel="stylesheet" href="../style/styles.css">
-    </head>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семестровая работа</title>
+    <link rel="stylesheet" href="../style/styles.css">
+</head>
+
 <body>
-<div class="page-container">
-<div class="header">Хэдер</div>
-<div class="nav">
-<ul class="nav-list">
-<li class="nav-item"><a class="nav-link"
-href="../index.html">Главная</a></li>
-<li class="nav-item"><a class="nav-link"
-href="news.html">Новости</a></li>
-<li class="nav-item"><a class="nav-link"
-href="practices.html">Практики</a></li>
-<li class="nav-item"><a class="nav-link"
-href="goods.html">Товары</a></li>
-<li class="nav-item"><a class="nav-link"
-href="contacts.html">Контакты</a></li>
-</ul>
+    <div class="page-container">
+        <header class="header">
+            <img class="ico" src="../images/icons/111.png" alt="logo">
+            <h3>Ковалёв Фёдор</h3>
+        </header>
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="news.html">Дневник</a></li>
+                <li class="nav-item"><a class="nav-link" href="goods.html">Проекты</a></li>
+                <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
+            </ul>
         </div>
 
         <div class="content">
-    <section class="news-container">
-        <article class="news-card">
-            <h3 class="news-title">Загадочная бабуля на остановке</h3>
-            <p class="news-meta">02.02.2020 — З.В Коричнева</p>
-            <p class="news-text">Бабуля Зина под действием лошадиных транквилизаторов ...</p>
-        </article>
+            <h3 class="news-title">Мой учебный прогресс</h3>
+            <section>
+                <article class="news-card">
+                    <p class="news-text">15 сен - прокрастинация <span class="news-meta done">✓</span></p>
+                    <p class="news-text">10 окт - осознать испуг <span class="news-meta done">✓</span></p>
+                    <p class="news-text">15 окт - обработать реальность <span class="news-meta in-progress">in
+                            progress</span></p>
+                    <p class="news-text">27 окт - начать учиться <span class="news-meta in-progress">in progress</span>
+                    </p>
+                </article>
+            </section>
+            <section class="news-container" id="news-container">
+                <article class="news-card">
+                    28 окт - ...
+                    <span class="news-meta done">✓</span>
+                </article>
+            </section>
 
-        <article class="news-card">
-            <h3 class="news-title">Легендарная бабка начала новый сезон...</h3>
-            <p class="news-meta">01.03.2020 — З.В Коричнева</p>
-            <p class="news-text">Бабуля Зина начала продавать коллекцию своих зубов!!!</p>
-        </article>
+            <h3 class="news-title">Текущие курсы</h3>
+            <section class="courses-container">
+                <div class="course">
+                    <span>Веб-разработка</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <div class="course">
+                    <span>база данная</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 20%;"></div>
+                    </div>
+                </div>
+                <div class="course">
+                    <span>с#</span>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 40%;"></div>
+                    </div>
+                </div>
+                <button class="contact-button" id="open-feedback-btn">Добавить запись</button>
 
-        <article class="news-card">
-            <h3 class="news-title">Ужасная трагедия...</h3>
-            <p class="news-meta">01.03.2020 — З.В Коричнева</p>
-            <p class="news-text">Бабуля Зина под действием лошадиных транквилизаторов исполнила древний танец богов лошадиных покровителей вентилятор энерго напитов</p>
-        </article>
-    </section>
-</div>
 
+
+            </section>
         </div>
 
 
-        <footer class="footer"> <!-- Было: <div class="footer"> -->
-<p>Футер</p> <!-- Добавили параграф для семантики -->
-</footer>
+
+        <footer class="footer">
+            <p>@2024 </p>
+        </footer>
+
+        <dialog id="contactModal">
+            <form method="dialog" id="feedbackForm">
+                <div class="modal-header">
+                    <h2>Добавить запись</h2>
+                </div>
+                <div class="form-group">
+                    <label for="message">Текст обращения <span class="required">*</span></label>
+                    <textarea id="message" name="message" required
+                        placeholder="Опишите вашу проблему или вопрос..."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button class="contact-button" type="submit">Добавить</button>
+                    <button class="contact-button" type="button" id="closeModalBtn">Отмена</button>
+                </div>
+            </form>
+        </dialog>
+
+        <script>
+            const openBtn = document.getElementById('open-feedback-btn');
+            const modal = document.getElementById('contactModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const form = document.getElementById('feedbackForm');
+            const newsContainer = document.getElementById('news-container');
+
+
+            openBtn.addEventListener('click', () => {
+                modal.showModal();
+            });
+
+            /* Закрытие окна */
+            closeModalBtn.addEventListener('click', () => {
+                modal.close();
+            });
+
+            /* Обработка отправки формы */
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const message = form.message.value.trim();
+                if (!message) return;
+
+                const newArticle = document.createElement('article');
+                newArticle.className = 'news-card';
+                newArticle.textContent = message;
+
+                newsContainer.appendChild(newArticle);
+
+                modal.close();
+                form.reset();
+            });
+        </script>
+
 
     </div>
-    </body>
+
+
+</body>
+
 </html>
